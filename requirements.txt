@@ -1,0 +1,8 @@
+numpy
+spicy
+torch
+torchvision
+scikit-image
+opencv-python
+nvidia-ml-py3
+scikit-learn
