@@ -45,7 +45,7 @@ def gtnc(para=dict()):
     # Program Parameter
     para['dtype'] = torch.float64
     para['data_deal_method'] = ['normalization']
-    para['resize_size'] = (64, 64)
+    para['resize_size'] = (32, 32)
     # MPS Parameter
     para['physical_bond'] = 2
     para['virtual_bond_limitation'] = 32
