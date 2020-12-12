@@ -35,7 +35,7 @@ Today i find a new dataset from **kaggle** "[COVID-19 Radiography Database](http
 
 There are 219 COVID-19 positive images in this dataset, 1341 normal images and 1345 viral pneumonia images. It will continue to update this database as soon as we have new x-ray images for COVID-19 pneumonia patients.And this dataset is just a expansion of the original one.So it can be easily used into the GTNC or others work that have been down by our group.Here are some CT image examples
 
-![ct-image](https://github.com/SWUQML/GTNC-for-Covid19-Application/images/CT_Image.png)
+![ct-image](https://github.com/SWUQML/GTNC-for-Covid19-Application/blob/master/images/CT_Image.png)
 
 # Details
 
