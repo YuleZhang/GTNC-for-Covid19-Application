@@ -69,5 +69,9 @@ def tensor_svd(tmp_tensor, index_left='none', index_right='none'):
     index_left = numpy.array(index_left).flatten()
     tmp_tensor = tmp_tensor.permute(tuple(numpy.concatenate([index_left, index_right])))
     tmp_tensor = tmp_tensor.reshape(tmp_shape[index_left].prod(), tmp_shape[index_right].prod())# reshape成矩阵之后进行分解
-    u, l, v = torch.svd(tmp_tensor) # svd分解并返回结果
+    # u, l, v = torch.svd(tmp_tensor)
+    try:
+        u, l, v = torch.svd(tmp_tensor)
+    except:                     # torch.svd may have convergence issues for GPU and CPU.
+        u, l, v = torch.svd(tmp_tensor + 1e-4*tmp_tensor.mean()*torch.rand(tmp_tensor.shape[0], tmp_tensor.shape[1]))
     return u, l, v

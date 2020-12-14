@@ -48,7 +48,7 @@ def gtnc(para=dict()):
     para['resize_size'] = (32, 32)
     # MPS Parameter
     para['physical_bond'] = 2
-    para['virtual_bond_limitation'] = 32
+    para['virtual_bond_limitation'] = 8
     para['mps_cutoff'] = -1
     para['mps_rand_seed'] = 1
     # Feature Map Parameter
@@ -56,7 +56,7 @@ def gtnc(para=dict()):
     para['mapped_dimension'] = 2
     # para['map_module'] = 'linear_map'
     # para['map_module'] = 'sqrt_linear_map'
-    para['map_module'] = 'linear_map'
+    para['map_module'] = 'sqrt_linear_map'
     # Training Parameter
     para['training_label'] = [[0],[1],[2]]  # para['training_label'] should be a list
     # para['training_label'] = [[3], [8]]
@@ -113,8 +113,8 @@ def feature_map(para=dict()):
 def training(para=dict()):
     para['training_label'] = [[3], [8]]
     para['n_training'] = 40  # an int or 'all'
-    para['update_step'] = 2e-1
-    para['step_decay_rate'] = 5
+    para['update_step'] = 2e-1 # initial learning rate
+    para['step_decay_rate'] = 5 # dynamic adjust the learning rate
     para['step_accuracy'] = 5e-3
     para['normalization_update_mode'] = 'on'
     para['update_mode'] = 'one_dot'  # one_dot or two_dots
