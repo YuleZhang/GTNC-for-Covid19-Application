@@ -40,12 +40,12 @@ def gtnc(para=dict()):
     para.update(training())
     # Machine Learning Parameter
     para['classifier_type'] = 'GTNC'
-    para['dataset_content'] = 'dataset'
+    para['dataset_content'] = 'X-Ray_Image_Expand_DataSet'
     para['dataset'] = 'X-Ray Image DataSet'
     # Program Parameter
     para['dtype'] = torch.float64
     para['data_deal_method'] = ['normalization']
-    para['resize_size'] = (32, 32)
+    para['resize_size'] = (64, 64)
     # MPS Parameter
     para['physical_bond'] = 2
     para['virtual_bond_limitation'] = 8
@@ -68,7 +68,7 @@ def gtnc(para=dict()):
 def ml(para=dict()):
     base_path = os.path.dirname(__file__) + os.path.sep + ".."
     para['dataset'] = 'mnist'
-    para['path_dataset'] = os.path.join(base_path,  "dataset/img_dict_cls3.csv") # "../dataset/img_dict_cls3.csv"
+    para['path_dataset'] = os.path.join(base_path,  "X-Ray_Image_Expand_DataSet/img_dict_cls3.csv") # "../dataset/img_dict_cls3.csv"
     para['data_type'] = ['train', 'test']
     para['classifier_type'] = 'None'
     para['sort_module'] = 'rand' # define the way to sort the dataset,rand mean shuffle the training data

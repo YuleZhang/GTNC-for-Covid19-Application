@@ -8,7 +8,7 @@ para = Parameters.gtnc()
 # get the relation between cutting dimention and testing accuracy
 batch_bond = []
 batch_acc = []
-for i in range(1, 8):
+for i in range(5, 6):
     bond = 2 ** i # get the cutting bond
     para['virtual_bond_limitation'] = bond
     print('The current cutting bond is %d' % bond)

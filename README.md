@@ -57,3 +57,9 @@ but the latex in [paper](https://arxiv.org/abs/1903.10742) is:
 
 Actually, it's hard for code to correspond  the latex in paper when i try to compare them.But one thing can be denfinitely certained is that **the times of initial loop will be affected by two adjacent loss value**, because we use the function **is_convergence to judge if the loss value are downscaling in a big step**.Apparently, we will stop continuely to train model if the **loss values have no more changes.**
 
+## Result
+
+![ct-image](https://github.com/SWUQML/GTNC-for-Covid19-Application/blob/master/images/result.png)
+
+Here is the result of the classfication, model accuracy up to 94% when cutting bond is 256
+

@@ -116,6 +116,20 @@ class MachineLearning:
             self.images_data['test'] = numpy.array(test_data)
             self.labels_data['test'] = numpy.array(test_label)
             self.data_info['origin_shape'] = self.para['resize_size']
+        elif self.para['dataset'] == 'extended YaleB':
+            img_info_path = self.para['path_dataset']
+            if not os.path.exists(img_info_path):
+                self.Restore_Yale_Img_Path(self.para['dataset_content'],img_info_path)
+            img_info = pd.read_csv(img_info_path)
+            #print(img_info)
+            train_data, train_label, test_data, test_label = self.split_data(img_info, 0.2)
+            self.images_data['train'] = numpy.array(train_data)
+            self.labels_data['train'] = numpy.array(train_label)
+            self.images_data['test'] = numpy.array(test_data)
+            self.labels_data['test'] = numpy.array(test_label)
+
+            self.data_info['origin_shape'] = self.para['resize_size']
+
         self.data_info['shape'] = copy.copy(self.data_info['origin_shape'])
 
     # The infomation of dataset including the number of train samples and test samples
@@ -261,6 +275,30 @@ class MachineLearning:
         data = {"path":img_path,"label":img_label}
         img_df = pd.DataFrame(data)
         img_df.to_csv(csv_path,index=False)
+
+    def Restore_Yale_Img_Path(self,Dst_Path, csv_path):
+        '''
+        Dst_Path: the content of Image file
+        '''
+        img_path = []
+        img_label = []
+        label_path_name = os.listdir(Dst_Path)
+        
+        label_number=1
+        for sub_dir in label_path_name:
+            sub_dir_list = os.listdir(os.path.join(Dst_Path,sub_dir))
+            delete_item=[]
+            for sub_file_name in sub_dir_list:
+                if not ('info' in sub_file_name or 'Ambient' in sub_file_name):
+                    img_path.append(os.path.join(Dst_Path, sub_dir, sub_file_name))
+                    img_label.append(label_number)
+
+            label_number += 1
+         
+        data = {"path":img_path,"label":img_label}
+        img_df = pd.DataFrame(data)
+        img_df.to_csv(csv_path,index=False)
+
 
     def calculate_running_time(self, mode='end'):
         if mode == 'start':

@@ -73,5 +73,5 @@ def tensor_svd(tmp_tensor, index_left='none', index_right='none'):
     try:
         u, l, v = torch.svd(tmp_tensor)
     except:                     # torch.svd may have convergence issues for GPU and CPU.
-        u, l, v = torch.svd(tmp_tensor + 1e-4*tmp_tensor.mean()*torch.rand(tmp_tensor.shape[0], tmp_tensor.shape[1]))
+        u, l, v = torch.svd(tmp_tensor + 1e-9*tmp_tensor.mean()*torch.rand(tmp_tensor.shape[0], tmp_tensor.shape[1]))
     return u, l, v
