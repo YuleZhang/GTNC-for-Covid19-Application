@@ -39,7 +39,7 @@ There are 219 COVID-19 positive images in this dataset, 1341 normal images and 1
 
 # Details
 
-Here are my learning report about this project:  [Here](http://www.yulezhang.com/2020/12/06/Study-Report(1130-1206)/)
+Here are my learning report about this project:  [Here](http://www.yulezhang.com/2020/12/06/50Study-Report(1130-1206)/)
 
 The report are written in Chinese, including some explanition about this project.In fact, the source of this code are created by Sun Zhengzhi and S.J. Ran, both of them are famous and they have contributed a lot to tensor network machine learning.You can access the original code of this project by click [here](https://github.com/crazybigcat/GTNC), and I have modify some tools of this project.
 
